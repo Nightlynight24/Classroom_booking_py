@@ -37,7 +37,7 @@ def load_students(student_file):
         print(f"⚠️ ไม่พบไฟล์ {student_file}")
     return student_list
                 
-    
+#### ========= Booking System ========= ####
 
 class room:
     def __init__(self, num, owner):
@@ -60,15 +60,10 @@ def booking_room(num, fname, lname) -> bool:
                     return True
         return False
 
+##### ========= Main Program ========= ####
 
-
-
-
-
-
-
-room_list = [room(101, None), room(102, None), room(103, None)]
-student_list = [student("J", "D"), student("J", "N")]
+room_list = [room(room_num, owner) for room_num, owner in load_rooms(ROOM_NUMBER).items()]
+student_list = [student(fname, lname) for fname, lname in load_students(STUDENT).items()]
 
 while True:
     try:
