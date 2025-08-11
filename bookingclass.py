@@ -6,12 +6,13 @@ STUDENT = "student.txt"
 def load_rooms(room_file):
     room_number = {}
     try:
-        with open(room_file, 'r', encoding='utf-8') as rooms:
-            for line in rooms:
+        with open(room_file, 'r', encoding='utf-8') as booking:
+            for line in booking:
                 num, owner = line.strip().split(',')
                 room_number[int(num)] = owner 
                 if owner != "None":
                     room_number[int(num)] = {
+                        'num': num,
                         'owner': owner,
                         'status': False
                     } 
